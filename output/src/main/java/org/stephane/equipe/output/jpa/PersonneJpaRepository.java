@@ -7,6 +7,6 @@ import org.stephane.equipe.output.entities.Personne;
 import java.util.List;
 
 @Repository
-public interface PersonneRepository extends JpaRepository<Personne, String> {
+public interface PersonneJpaRepository extends JpaRepository<Personne, String> {
     List<Personne> findAllById(String id);
 }

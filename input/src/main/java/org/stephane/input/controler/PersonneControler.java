@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.stephane.equipe.output.jpa.PersonneRepository;
+import org.stephane.equipe.output.jpa.PersonneJpaRepository;
 
 @RestController
 @RequestMapping(
@@ -16,7 +16,7 @@ import org.stephane.equipe.output.jpa.PersonneRepository;
         produces = {MediaType.APPLICATION_JSON_VALUE})
 @RequiredArgsConstructor
 public class PersonneControler {
-    private final PersonneRepository repository;
+    private final PersonneJpaRepository repository;
 
     @GetMapping
     public ResponseEntity<String> msg() {
