@@ -11,7 +11,7 @@
     <modules>
         <module>input</module>
         <module>metier</module>
-        <module>ouput</module>
+        <module>output</module>
     </modules>
 
     <properties>

@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -26,5 +28,8 @@ public class Personne {
     private String id;
     @NotEmpty
     private String nom;
+    @NotEmpty
     private String prenom;
+    @NotNull
+    private LocalDate dnaiss;
 }
