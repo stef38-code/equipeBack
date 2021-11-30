@@ -1,8 +1,9 @@
 package org.stephane.equipe.output.adapter;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import org.stephane.equipe.output.entities.Personne;
+import org.stephane.equipe.output.entities.PersonneOutput;
 import org.stephane.equipe.output.jpa.PersonneJpaRepository;
 import org.stephane.equipe.output.port.PersonnePortOuput;
 
@@ -11,15 +12,17 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
-public class PersonneOutputJpaAdapter implements PersonnePortOuput {
+@Qualifier("PersonneJpaRepository")
+public class PersonnePortOutputJpaAdapter implements PersonnePortOuput {
     private final PersonneJpaRepository repository;
+
     @Override
-    public List<Personne> findAll() {
+    public List<PersonneOutput> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public Optional<Personne> findById(String id) {
+    public Optional<PersonneOutput> findById(String id) {
         return repository.findById(id);
     }
 
@@ -29,8 +32,8 @@ public class PersonneOutputJpaAdapter implements PersonnePortOuput {
     }
 
     @Override
-    public Personne save(Personne personne) {
-        return repository.save(personne);
+    public PersonneOutput save(PersonneOutput personneOutput) {
+        return repository.save(personneOutput);
     }
 
 }

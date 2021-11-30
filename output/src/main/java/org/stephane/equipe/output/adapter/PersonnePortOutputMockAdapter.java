@@ -1,22 +1,22 @@
 package org.stephane.equipe.output.adapter;
 
-import org.stephane.equipe.output.entities.Personne;
+import org.stephane.equipe.output.entities.PersonneOutput;
 import org.stephane.equipe.output.mock.PersonneMockRepository;
 import org.stephane.equipe.output.port.PersonnePortOuput;
 
 import java.util.List;
 import java.util.Optional;
 
-public class PersonneOutputMockAdapter implements PersonnePortOuput {
+public class PersonnePortOutputMockAdapter implements PersonnePortOuput {
     private PersonneMockRepository repository = new PersonneMockRepository();
 
     @Override
-    public List<Personne> findAll() {
+    public List<PersonneOutput> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public Optional<Personne> findById(String id) {
+    public Optional<PersonneOutput> findById(String id) {
         return repository.findById(id);
     }
 
@@ -26,8 +26,8 @@ public class PersonneOutputMockAdapter implements PersonnePortOuput {
     }
 
     @Override
-    public Personne save(Personne personne) {
-        return repository.save(personne);
+    public PersonneOutput save(PersonneOutput personneOutput) {
+        return repository.save(personneOutput);
     }
 
 }

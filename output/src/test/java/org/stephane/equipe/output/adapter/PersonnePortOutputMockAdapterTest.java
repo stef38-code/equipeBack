@@ -2,7 +2,7 @@ package org.stephane.equipe.output.adapter;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.stephane.equipe.output.entities.Personne;
+import org.stephane.equipe.output.entities.PersonneOutput;
 import org.stephane.equipe.output.port.PersonnePortOuput;
 
 import java.time.LocalDate;
@@ -10,12 +10,12 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PersonneOutputMockAdapterTest {
+class PersonnePortOutputMockAdapterTest {
     private PersonnePortOuput personnePortOuput;
 
     @BeforeEach
     void setUp() {
-        personnePortOuput = new PersonneOutputMockAdapter();
+        personnePortOuput = new PersonnePortOutputMockAdapter();
     }
 
     @Test
@@ -31,7 +31,7 @@ class PersonneOutputMockAdapterTest {
 
     @Test
     void findById() {
-        Optional<Personne> actual = personnePortOuput.findById("2");
+        Optional<PersonneOutput> actual = personnePortOuput.findById("2");
         assertThat(actual).isPresent();
         assertThat(actual.get().getId()).isNotBlank();
         actual = personnePortOuput.findById("999999");
@@ -40,12 +40,12 @@ class PersonneOutputMockAdapterTest {
 
     @Test
     void save() {
-        Personne personne = new Personne();
-        personne.setPrenom("Prenom");
-        personne.setId("42");
-        personne.setNom("Nom");
-        personne.setDnaiss(LocalDate.ofEpochDay(1L));
-        Personne actual = personnePortOuput.save(personne);
+        PersonneOutput personneOutput = new PersonneOutput();
+        personneOutput.setPrenom("Prenom");
+        personneOutput.setId("42");
+        personneOutput.setNom("Nom");
+        personneOutput.setDnaiss(LocalDate.ofEpochDay(1L));
+        PersonneOutput actual = personnePortOuput.save(personneOutput);
         assertThat(actual).isNotNull();
         assertThat(actual.getId()).isNotBlank();
 

@@ -18,8 +18,8 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name="personne")
-public class Personne {
+@Table(name = "personne")
+public class PersonneOutput {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")

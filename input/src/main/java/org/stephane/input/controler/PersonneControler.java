@@ -5,10 +5,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.stephane.equipe.output.jpa.PersonneJpaRepository;
+import org.springframework.web.bind.annotation.*;
+import org.stephane.input.entities.PersonneDto;
+import org.stephane.input.port.PersonnePortInput;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(
@@ -16,10 +17,25 @@ import org.stephane.equipe.output.jpa.PersonneJpaRepository;
         produces = {MediaType.APPLICATION_JSON_VALUE})
 @RequiredArgsConstructor
 public class PersonneControler {
-    private final PersonneJpaRepository repository;
+    private final PersonnePortInput personnePortInput;
 
     @GetMapping
-    public ResponseEntity<String> msg() {
-        return new ResponseEntity<>("coucou !!", HttpStatus.OK);
+    public ResponseEntity<List<PersonneDto>> getProducts() {
+        return new ResponseEntity<>(personnePortInput.getPersonnes(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{personneId}")
+    public ResponseEntity<PersonneDto> getProductById(@PathVariable String personneId) {
+        return new ResponseEntity<>(personnePortInput.getPersonneById(personneId), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<PersonneDto> addProduct(@RequestBody PersonneDto personneDto) {
+        return new ResponseEntity<>(personnePortInput.addPersonne(personneDto), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{personneId}")
+    public ResponseEntity<PersonneDto> removeProduct(@PathVariable String personneId) {
+        return new ResponseEntity<>(personnePortInput.removePersonne(personneId), HttpStatus.OK);
     }
 }
