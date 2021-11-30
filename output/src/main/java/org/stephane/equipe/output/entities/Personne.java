@@ -18,12 +18,11 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @Entity
-
 @Table(name="personne")
 public class Personne {
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private String id;
     @NotEmpty
     private String nom;
