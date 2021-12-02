@@ -1,4 +1,4 @@
-package org.stephane.input.service;
+package org.stephane.service;
 
 import org.stephane.input.entities.PersonneDto;
 

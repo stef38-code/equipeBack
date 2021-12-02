@@ -1,19 +1,18 @@
 package org.stephane.input.adapter;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import org.stephane.equipe.output.port.PersonnePortOuput;
 import org.stephane.input.entities.PersonneDto;
 import org.stephane.input.port.PersonnePortInput;
+import org.stephane.metier.work.PersonneBusiness;
 
 import java.util.List;
 
-@RequiredArgsConstructor
-@Component
-@Qualifier("PersonnePortInputAdapter")
 public class PersonnePortInputAdapter implements PersonnePortInput {
-    private final PersonnePortOuput personnePortOuput;
+    private PersonneBusiness personneBusiness;
+
+    public PersonnePortInputAdapter(PersonnePortOuput personnePortOuput) {
+        this.personneBusiness = new PersonneBusiness(personnePortOuput);
+    }
 
     @Override
     public List<PersonneDto> getPersonnes() {

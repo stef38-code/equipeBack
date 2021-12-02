@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>metier</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.stephane</groupId>
+            <artifactId>ouput</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

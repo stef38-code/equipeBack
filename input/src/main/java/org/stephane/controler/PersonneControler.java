@@ -1,4 +1,4 @@
-package org.stephane.input.controler;
+package org.stephane.controler;
 
 
 import lombok.RequiredArgsConstructor;

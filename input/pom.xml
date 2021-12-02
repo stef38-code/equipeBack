@@ -23,6 +23,12 @@
             <artifactId>ouput</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.stephane</groupId>
+            <artifactId>metier</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
